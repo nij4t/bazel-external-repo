@@ -5,16 +5,18 @@ cc_library(
     srcs = ["dwm-master/util.c"],
     hdrs = ["dwm-master/util.h"],
     copts = [
-	'-std=c99',
-        '-pedantic',
-        '-Wall',
-        '-Wno-deprecated-declarations',
-        '-Os',
-        '-D_DEFAULT_SOURCE',
-        '-D_BSD_SOURCE',
-        '-D_POSIX_C_SOURCE=200809L',
-        '-DVERSION="6.2"',
-        '-DXINERAMA'
+	"-std=c99",
+        "-pedantic",
+        "-Wall",
+        "-Wno-deprecated-declarations",
+        "-Os",
+    ],
+    defines = [
+        "_DEFAULT_SOURCE",
+        "_BSD_SOURCE",
+        "_POSIX_C_SOURCE=200809L",
+        "XINERAMA",
+        'VERSION=\\"6.2\\"',
     ],
 )
 
@@ -24,41 +26,22 @@ cc_library(
     hdrs = ["dwm-master/drw.h"],
     deps = [":util"],
     copts = [
-	'-std=c99',
-        '-pedantic',
-        '-Wall',
-        '-Wno-deprecated-declarations',
-        '-Os',
-        '-D_DEFAULT_SOURCE',
-        '-D_BSD_SOURCE',
-        '-D_POSIX_C_SOURCE=200809L',
-        '-DVERSION="6.2"',
-        '-DXINERAMA',
+	"-std=c99",
+        "-pedantic",
+        "-Wall",
+        "-Wno-deprecated-declarations",
+        "-Os",
+    ],
+    defines = [
+        "_DEFAULT_SOURCE",
+        "_BSD_SOURCE",
+        "_POSIX_C_SOURCE=200809L",
+        "XINERAMA",
+        'VERSION=\\"6.2\\"',
     ],
 )
 
-cc_library(
-    name = "dwm",
-    srcs = [
-        "dwm-master/dwm.c",
-        "dwm-master/fibonacci.c",
-    ],
-    hdrs = [
-        "dwm-master/drw.h",
-        "dwm-master/util.h",
-        "dwm-master/config.h",
-    ],
-    copts = [
-	'-std=c99',
-        '-pedantic',
-        '-Wall',
-        '-Wno-deprecated-declarations',
-        '-Os',
-        '-D_DEFAULT_SOURCE',
-        '-D_BSD_SOURCE',
-        '-D_POSIX_C_SOURCE=200809L',
-        '-DVERSION="6.2"',
-        '-DXINERAMA',
-    ],
+filegroup(
+    name = "srcs",
+    srcs = glob(["**"]),
 )
-
