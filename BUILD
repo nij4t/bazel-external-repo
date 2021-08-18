@@ -1,9 +1,16 @@
 cc_binary(
     name = "main",
-    srcs = ["@dwm//:dwm"],
     deps = [
         "@dwm//:util",
         "@dwm//:drw",
+        "@dwm//:dwm",
+    ],
+    linkopts = [
+        '-L/usr/X11R6/lib',
+        '-lX11',
+        '-lXinerama',
+        '-lfontconfig',
+        '-lXft',
     ],
 )
 
